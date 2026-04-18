@@ -21,579 +21,764 @@
             --text-tertiary: rgba(255, 255, 255, 0.5);
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-hover: rgba(255, 255, 255, 0.08);
             --success: #34c759;
-            --danger: #ff3b30;
+            --youtube-red: #ff0000;
         }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary); min-height: 100vh; color: var(--text-primary);
+            background: var(--bg-primary);
+            min-height: 100vh;
+            color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
         }
+        
         .bg-gradient {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 20% 0%, rgba(255,0,0,0.05) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 100%, rgba(212,175,55,0.06) 0%, transparent 50%),
-                        var(--bg-primary);
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 0%, rgba(255, 0, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+                var(--bg-primary);
             z-index: -1;
         }
+        
         .container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+        
+        /* Header */
         header { text-align: center; margin-bottom: 48px; }
+        
+        .logo { width: 64px; height: 64px; margin-bottom: 16px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        
         h1 {
-            font-size: 2.25rem; font-weight: 700; letter-spacing: -0.03em;
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
             background: linear-gradient(180deg, var(--silver-light) 0%, var(--gold) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
         }
+        
         .subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 8px; }
         .updated { font-size: 0.8125rem; color: var(--text-tertiary); }
-        .auto-badge { display: inline-block; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 4px; background: rgba(52,199,89,0.15); color: var(--success); margin-left: 8px; vertical-align: middle; }
+        
+        /* Stats Bar */
         .stats-bar {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px; margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
         }
+        
         .stat-box {
-            background: var(--glass-bg); backdrop-filter: blur(20px); border-radius: 14px;
-            padding: 20px; text-align: center; border: 1px solid var(--glass-border); transition: all 0.25s ease;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            transition: all 0.25s ease;
         }
-        .stat-box:hover { border-color: rgba(212,175,55,0.3); transform: translateY(-2px); }
-        .stat-box.highlight { border-color: rgba(212,175,55,0.25); }
+        
+        .stat-box:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .stat-box.highlight { border-color: rgba(212, 175, 55, 0.25); }
+        
         .stat-value {
-            font-size: 1.75rem; font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 700;
             background: linear-gradient(180deg, var(--silver) 0%, var(--gold-light) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
-        .stat-label { font-size: 0.6875rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+        
+        .stat-label {
+            font-size: 0.6875rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+        
+        .stat-delta {
+            font-size: 0.6875rem;
+            color: var(--success);
+            margin-top: 2px;
+        }
+        
+        /* Grid */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
         @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+        
+        /* Cards */
         .card {
-            background: var(--glass-bg); backdrop-filter: blur(20px); border-radius: 16px;
-            padding: 24px; border: 1px solid var(--glass-border); margin-bottom: 16px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 16px;
         }
+        
         .card-header {
-            display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
-            padding-bottom: 16px; border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--glass-border);
         }
+        
         .card-icon { font-size: 1.25rem; }
         .card-title { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
-        .card-badge { margin-left: auto; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 6px; background: rgba(212,175,55,0.15); color: var(--gold); }
+        
+        /* Bar Chart */
         .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+        
         .bar-row { display: flex; align-items: center; gap: 12px; }
         .bar-label { width: 100px; font-size: 0.8125rem; color: var(--text-secondary); text-align: right; }
-        .bar-wrapper { flex: 1; height: 28px; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; position: relative; }
-        .bar { height: 100%; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; font-size: 0.75rem; font-weight: 600; color: var(--bg-primary); }
-        .bar-value { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; color: var(--text-secondary); }
+        
+        .bar-wrapper {
+            flex: 1;
+            height: 28px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--bg-primary);
+            transition: width 0.5s ease;
+        }
+        
+        .bar-value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Pie Chart */
         .pie-container { display: flex; align-items: center; gap: 32px; justify-content: center; flex-wrap: wrap; }
-        .pie-chart { width: 160px; height: 160px; border-radius: 50%; background: conic-gradient(var(--gold) 0deg 230deg, #b8860b 230deg 325deg, var(--silver) 325deg 345deg, #666 345deg 356deg, #444 356deg 360deg); position: relative; }
-        .pie-chart::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90px; height: 90px; background: var(--bg-primary); border-radius: 50%; }
-        .pie-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        
+        .pie-chart {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--gold) 0deg 230deg,
+                #b8860b 230deg 325deg,
+                var(--silver) 325deg 345deg,
+                #666 345deg 356deg,
+                #444 356deg 360deg
+            );
+            position: relative;
+        }
+        
+        .pie-chart::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px; height: 90px;
+            background: var(--bg-primary);
+            border-radius: 50%;
+        }
+        
+        .pie-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
         .pie-value { font-size: 1.375rem; font-weight: 700; color: var(--gold); }
         .pie-label { font-size: 0.6875rem; color: var(--text-tertiary); }
+        
         .legend { display: flex; flex-direction: column; gap: 8px; }
         .legend-item { display: flex; align-items: center; gap: 10px; font-size: 0.8125rem; color: var(--text-secondary); }
         .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
-        .channel-card { background: rgba(255,255,255,0.02); border-radius: 14px; padding: 20px; margin-bottom: 12px; border: 1px solid transparent; transition: all 0.25s ease; }
-        .channel-card:hover { border-color: rgba(212,175,55,0.2); background: rgba(255,255,255,0.04); }
+        
+        /* Channel Cards */
+        .channel-card {
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+        }
+        
+        .channel-card:hover { border-color: rgba(212, 175, 55, 0.2); background: rgba(255,255,255,0.04); }
         .channel-card:last-child { margin-bottom: 0; }
+        
         .channel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-        .channel-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--silver) 100%); display: flex; align-items: center; justify-content: center; font-size: 1.125rem; }
+        
+        .channel-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--silver) 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.125rem;
+        }
+        
         .channel-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
         .channel-info p { font-size: 0.75rem; color: var(--text-tertiary); }
-        .channel-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .channel-stat { text-align: center; padding: 12px 8px; background: rgba(255,255,255,0.02); border-radius: 10px; }
+        
+        .channel-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        
+        .channel-stat {
+            text-align: center;
+            padding: 12px 8px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+        }
+        
         .channel-stat-value { font-size: 1.125rem; font-weight: 700; color: var(--gold); }
         .channel-stat-label { font-size: 0.625rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.03em; margin-top: 2px; }
-        .progress-bar { height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; margin-top: 12px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-bright)); border-radius: 2px; }
-        .video-card { display: flex; gap: 14px; padding: 14px; background: rgba(255,255,255,0.02); border-radius: 12px; margin-bottom: 10px; transition: all 0.2s ease; }
+        
+        .progress-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+            border-radius: 2px;
+        }
+        
+        /* Video Cards */
+        .video-card {
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+        }
+        
         .video-card:hover { background: rgba(255,255,255,0.05); }
         .video-card:last-child { margin-bottom: 0; }
-        .video-thumb { width: 72px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--silver)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+        
+        .video-thumb {
+            width: 72px; height: 44px;
+            background: linear-gradient(135deg, var(--gold), var(--silver));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
         .video-info { flex: 1; min-width: 0; }
         .video-title { font-size: 0.875rem; font-weight: 500; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .video-meta { font-size: 0.6875rem; color: var(--text-tertiary); }
+        
         .video-stats { display: flex; gap: 12px; margin-top: 6px; }
         .video-stat { font-size: 0.75rem; color: var(--text-tertiary); display: flex; align-items: center; gap: 4px; }
         .video-stat.views { color: var(--gold); font-weight: 600; }
+        
+        /* Insights */
         .insight-list { list-style: none; }
-        .insight-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--glass-border); }
+        
+        .insight-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
         .insight-item:last-child { border-bottom: none; }
+        
         .insight-icon { font-size: 1.125rem; flex-shrink: 0; }
         .insight-text { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
         .insight-text strong { color: var(--gold); }
-        .engagement-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 8px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.8125rem; align-items: center; }
-        .engagement-row.header { font-size: 0.6875rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; border-bottom: 1px solid var(--glass-border); }
-        .engagement-row .title-col { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-secondary); }
-        .engagement-row .num-col { text-align: right; color: var(--text-tertiary); }
-        .engagement-row .num-col.highlight { color: var(--gold); font-weight: 600; }
+        
+        /* Table */
         table { width: 100%; border-collapse: collapse; }
-        th { text-align: left; font-size: 0.6875rem; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; padding: 12px 8px; border-bottom: 1px solid var(--glass-border); }
-        td { padding: 14px 8px; font-size: 0.875rem; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        
+        th {
+            text-align: left;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 12px 8px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        td {
+            padding: 14px 8px;
+            font-size: 0.875rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        
         tr:hover { background: rgba(255,255,255,0.02); }
+        
         .channel-name { display: flex; align-items: center; gap: 10px; }
-        .channel-icon-sm { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--silver)); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+        
+        .channel-icon-sm {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--silver));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem;
+        }
+        
         a { color: var(--gold); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        
         code { font-family: 'SF Mono', monospace; font-size: 0.6875rem; color: var(--text-tertiary); }
-        footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--glass-border); font-size: 0.8125rem; color: var(--text-tertiary); }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--glass-border);
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+        }
+        
+        /* Back link */
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--gold); text-decoration: none; }
+        
         @media (max-width: 768px) {
+            .back-link { position: static; margin-bottom: 24px; }
             .container { padding: 32px 16px; }
             h1 { font-size: 1.75rem; }
-            .engagement-row { grid-template-columns: 2fr 1fr 1fr 1fr; }
-            .engagement-row .hide-mobile { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="bg-gradient"></div>
+    
+    <a href="index.html" class="back-link">← Dashboard Hub</a>
+    
     <div class="container">
         <header>
+            <img src="ipai-logo.jpg" alt="IPAI" class="logo">
             <h1>YouTube Analytics</h1>
-            <p class="subtitle">Video Content Performance — Inception Point AI</p>
-            <p class="updated">Last updated: April 17, 2026 @ 7:30 AM PT <span class="auto-badge">Auto-Updated</span></p>
+            <p class="subtitle">Video Content Performance</p>
+            <p class="updated">Last updated: April 18, 2026 — 7:30 AM PT</p>
         </header>
-
+        
         <div class="stats-bar">
-            <div class="stat-box highlight"><div class="stat-value">5</div><div class="stat-label">Channels</div></div>
-            <div class="stat-box"><div class="stat-value">49</div><div class="stat-label">Subscribers</div></div>
-            <div class="stat-box highlight"><div class="stat-value">6,568</div><div class="stat-label">Total Views</div></div>
-            <div class="stat-box"><div class="stat-value">45</div><div class="stat-label">Videos</div></div>
-            <div class="stat-box"><div class="stat-value">146</div><div class="stat-label">Avg Views</div></div>
-            <div class="stat-box"><div class="stat-value">~16w</div><div class="stat-label">Age</div></div>
+            <div class="stat-box highlight">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Channels</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">49</div>
+                <div class="stat-label">Subscribers</div>
+                <div class="stat-delta">↑ 12 since Feb 5</div>
+            </div>
+            <div class="stat-box highlight">
+                <div class="stat-value">6,566</div>
+                <div class="stat-label">Total Views</div>
+                <div class="stat-delta">↑ 526 since Feb 5</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">46</div>
+                <div class="stat-label">Videos</div>
+                <div class="stat-delta">↑ 6 new</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">143</div>
+                <div class="stat-label">Avg Views</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">~16w</div>
+                <div class="stat-label">Age</div>
+            </div>
         </div>
-
+        
         <div class="grid-2">
             <div class="card">
-                <div class="card-header"><span class="card-icon">📊</span><span class="card-title">Views by Channel</span></div>
-                <div class="bar-chart"><div class="bar-row"><span class="bar-label">DIY</span><div class="bar-wrapper"><div class="bar" style="width: 100%;">4,199</div></div></div>
-<div class="bar-row"><span class="bar-label">History</span><div class="bar-wrapper"><div class="bar" style="width: 41%;">1,738</div></div></div>
-<div class="bar-row"><span class="bar-label">Everyday</span><div class="bar-wrapper"><div class="bar" style="width: 8%;"></div><span class="bar-value">356</span></div></div>
-<div class="bar-row"><span class="bar-label">TECH</span><div class="bar-wrapper"><div class="bar" style="width: 5%;"></div><span class="bar-value">200</span></div></div>
-<div class="bar-row"><span class="bar-label">Biography</span><div class="bar-wrapper"><div class="bar" style="width: 2%;"></div><span class="bar-value">75</span></div></div>
-</div>
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <span class="card-title">Views by Channel</span>
+                </div>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">DIY HOME</span>
+                        <div class="bar-wrapper"><div class="bar" style="width: 100%;">4,196</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">History</span>
+                        <div class="bar-wrapper"><div class="bar" style="width: 41%;">1,739</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Food</span>
+                        <div class="bar-wrapper"><div class="bar" style="width: 8%;"></div><span class="bar-value">356</span></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">TECH</span>
+                        <div class="bar-wrapper"><div class="bar" style="width: 5%;"></div><span class="bar-value">200</span></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Biography</span>
+                        <div class="bar-wrapper"><div class="bar" style="width: 2%;"></div><span class="bar-value">75</span></div>
+                    </div>
+                </div>
             </div>
+            
             <div class="card">
-                <div class="card-header"><span class="card-icon">🥧</span><span class="card-title">View Distribution</span></div>
+                <div class="card-header">
+                    <span class="card-icon">🥧</span>
+                    <span class="card-title">View Distribution</span>
+                </div>
                 <div class="pie-container">
-                    <div class="pie-chart"><div class="pie-center"><div class="pie-value">6,568</div><div class="pie-label">views</div></div></div>
-                    <div class="legend"><div class="legend-item"><span class="legend-dot" style="background: var(--gold);"></span> DIY (64%)</div>
-<div class="legend-item"><span class="legend-dot" style="background: #b8860b;"></span> History (26%)</div>
-<div class="legend-item"><span class="legend-dot" style="background: var(--silver);"></span> Everyday (5%)</div>
-<div class="legend-item"><span class="legend-dot" style="background: #666;"></span> TECH EXPLAINED (3%)</div>
-<div class="legend-item"><span class="legend-dot" style="background: #444;"></span> Biography (1%)</div>
-</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header"><span class="card-icon">📈</span><span class="card-title">Channel Performance</span></div>
-            
-    <div class="channel-card">
-        <div class="channel-header">
-            <div class="channel-avatar">🏠</div>
-            <div class="channel-info">
-                <h3>DIY HOME & GARDEN</h3>
-                <p>Created Dec 28 • 14 videos • Last upload Apr 16</p>
-            </div>
-        </div>
-        <div class="channel-stats">
-            <div class="channel-stat"><div class="channel-stat-value">10</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">4,199</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">300</div><div class="channel-stat-label">Per Video</div></div>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
-    </div>
-    <div class="channel-card">
-        <div class="channel-header">
-            <div class="channel-avatar">📚</div>
-            <div class="channel-info">
-                <h3>History You Never Learned</h3>
-                <p>Created Dec 29 • 14 videos • Last upload Apr 09</p>
-            </div>
-        </div>
-        <div class="channel-stats">
-            <div class="channel-stat"><div class="channel-stat-value">17</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">1,738</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">124</div><div class="channel-stat-label">Per Video</div></div>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 41%;"></div></div>
-    </div>
-    <div class="channel-card">
-        <div class="channel-header">
-            <div class="channel-avatar">🍳</div>
-            <div class="channel-info">
-                <h3>Everyday Food and Living</h3>
-                <p>Created Dec 28 • 9 videos • Last upload Jan 22</p>
-            </div>
-        </div>
-        <div class="channel-stats">
-            <div class="channel-stat"><div class="channel-stat-value">12</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">356</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">39</div><div class="channel-stat-label">Per Video</div></div>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 8%;"></div></div>
-    </div>
-    <div class="channel-card">
-        <div class="channel-header">
-            <div class="channel-avatar">💻</div>
-            <div class="channel-info">
-                <h3>TECH EXPLAINED</h3>
-                <p>Created Dec 29 • 4 videos • Last upload Jan 12</p>
-            </div>
-        </div>
-        <div class="channel-stats">
-            <div class="channel-stat"><div class="channel-stat-value">5</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">200</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">50</div><div class="channel-stat-label">Per Video</div></div>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
-    </div>
-    <div class="channel-card">
-        <div class="channel-header">
-            <div class="channel-avatar">👤</div>
-            <div class="channel-info">
-                <h3>Biography Unlimited</h3>
-                <p>Created Dec 29 • 4 videos • Last upload Jan 29</p>
-            </div>
-        </div>
-        <div class="channel-stats">
-            <div class="channel-stat"><div class="channel-stat-value">5</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">75</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">19</div><div class="channel-stat-label">Per Video</div></div>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 2%;"></div></div>
-    </div>
-        </div>
-
-        <div class="grid-2">
-            <div class="card">
-                <div class="card-header"><span class="card-icon">🔥</span><span class="card-title">Top Videos (All Time)</span></div>
-                
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">Victorian Heated Walls</div>
-            <div class="video-meta">DIY HOME & GARDEN • Jan 16 • 20s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 1,224</span>
-                <span class="video-stat">👍 15</span>
-                <span class="video-stat">💬 3</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">Survival vs  Thriving</div>
-            <div class="video-meta">DIY HOME & GARDEN • Jan 16 • 17s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 898</span>
-                <span class="video-stat">👍 7</span>
-                
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">📚</div>
-        <div class="video-info">
-            <div class="video-title">History Quiz: Who Organized the March but Didn’t Take the Mic?</div>
-            <div class="video-meta">History You Never Learned • Jan 27 • 56s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 749</span>
-                <span class="video-stat">👍 31</span>
-                <span class="video-stat">💬 2</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">Mathematics of Menus</div>
-            <div class="video-meta">DIY HOME & GARDEN • Jan 20 • 18s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 635</span>
-                <span class="video-stat">👍 3</span>
-                <span class="video-stat">💬 1</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">Time as an Ingredient</div>
-            <div class="video-meta">DIY HOME & GARDEN • Jan 20 • 18s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 539</span>
-                <span class="video-stat">👍 11</span>
-                <span class="video-stat">💬 3</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">🍳</div>
-        <div class="video-info">
-            <div class="video-title">Before You Throw That Away… Watch This</div>
-            <div class="video-meta">Everyday Food and Living • Jan 12 • 8m 40s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 278</span>
-                <span class="video-stat">👍 11</span>
-                <span class="video-stat">💬 1</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">Garden Walls Weren't Built for Privacy</div>
-            <div class="video-meta">DIY HOME & GARDEN • Jan 16 • 8m 1s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 206</span>
-                <span class="video-stat">👍 8</span>
-                
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">Sacred Timing of Sunday</div>
-            <div class="video-meta">DIY HOME & GARDEN • Jan 20 • 18s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 204</span>
-                <span class="video-stat">👍 5</span>
-                <span class="video-stat">💬 3</span>
-            </div>
-        </div>
-    </div>
-            </div>
-            <div class="card">
-                <div class="card-header"><span class="card-icon">💡</span><span class="card-title">Insights</span><span class="card-badge">Auto-Generated</span></div>
-                <ul class="insight-list"><li class="insight-item"><span class="insight-icon">🏆</span><span class="insight-text"><strong>DIY HOME & GARDEN</strong> leads with 64% of all views (4,199) — still the traffic engine</span></li>
-<li class="insight-item"><span class="insight-icon">📈</span><span class="insight-text"><strong>History You Never Learned</strong> has the most subscribers (17) — highest sub conversion rate</span></li>
-<li class="insight-item"><span class="insight-icon">📱</span><span class="insight-text"><strong>Shorts outperform long-form by 4.8x</strong> (213 vs 44 avg views)</span></li>
-<li class="insight-item"><span class="insight-icon">🧠</span><span class="insight-text"><strong>Top engagement:</strong> "Five Most Foods: Potato" — 6.5% like rate</span></li>
-<li class="insight-item"><span class="insight-icon">⚠️</span><span class="insight-text"><strong>Everyday, TECH, Biography</strong> — no uploads in 80+ days, content refresh overdue</span></li>
-<li class="insight-item"><span class="insight-icon">🐢</span><span class="insight-text"><strong>Slow Friday:</strong> +3 views overnight (DIY +1, History +1, Bio +1). Network at 6,568 total</span></li></ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header"><span class="card-icon">💬</span><span class="card-title">Engagement Deep Dive</span></div>
-            <div class="engagement-row header">
-                <span>Video</span><span style="text-align:right;">Views</span><span style="text-align:right;">Likes</span><span style="text-align:right;">Like Rate</span><span style="text-align:right;" class="hide-mobile">Comments</span>
-            </div>
-            
-    <div class="engagement-row">
-        <span class="title-col">📚 Five Most Foods That Changed History: Po...</span>
-        <span class="num-col">108</span>
-        <span class="num-col highlight">7</span>
-        <span class="num-col highlight">6.5%</span>
-        <span class="num-col hide-mobile">0</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">🏠 Why Victorian Gardeners Hated Straight L...</span>
-        <span class="num-col">93</span>
-        <span class="num-col highlight">4</span>
-        <span class="num-col highlight">4.3%</span>
-        <span class="num-col hide-mobile">0</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">📚 History Quiz: Who Organized the March bu...</span>
-        <span class="num-col">749</span>
-        <span class="num-col highlight">31</span>
-        <span class="num-col highlight">4.1%</span>
-        <span class="num-col hide-mobile">2</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">🍳 Before You Throw That Away… Watch This</span>
-        <span class="num-col">278</span>
-        <span class="num-col highlight">11</span>
-        <span class="num-col highlight">4.0%</span>
-        <span class="num-col hide-mobile">1</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">🏠 Garden Walls Weren't Built for Privacy</span>
-        <span class="num-col">206</span>
-        <span class="num-col highlight">8</span>
-        <span class="num-col highlight">3.9%</span>
-        <span class="num-col hide-mobile">0</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">📚 History Quiz: She Changed the Universe W...</span>
-        <span class="num-col">184</span>
-        <span class="num-col highlight">6</span>
-        <span class="num-col highlight">3.3%</span>
-        <span class="num-col hide-mobile">1</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">💻 Visibility vs  Productivity</span>
-        <span class="num-col">105</span>
-        <span class="num-col">3</span>
-        <span class="num-col">2.9%</span>
-        <span class="num-col hide-mobile">0</span>
-    </div>
-    <div class="engagement-row">
-        <span class="title-col">🏠 Tulip Mania</span>
-        <span class="num-col">107</span>
-        <span class="num-col">3</span>
-        <span class="num-col">2.8%</span>
-        <span class="num-col hide-mobile">0</span>
-    </div>
-            <div style="margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.02); border-radius: 12px;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; text-align: center;">
-                    <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--gold);">171</div><div style="font-size: 0.625rem; color: var(--text-tertiary); text-transform: uppercase;">Total Likes</div></div>
-                    <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--gold);">25</div><div style="font-size: 0.625rem; color: var(--text-tertiary); text-transform: uppercase;">Total Comments</div></div>
-                    <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--gold);">2.6%</div><div style="font-size: 0.625rem; color: var(--text-tertiary); text-transform: uppercase;">Avg Like Rate</div></div>
-                    <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--gold);">3.8</div><div style="font-size: 0.625rem; color: var(--text-tertiary); text-transform: uppercase;">Likes/Video</div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid-2">
-            <div class="card">
-                <div class="card-header"><span class="card-icon">⏱️</span><span class="card-title">Shorts vs Long-Form</span></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-                    <div style="padding: 16px; background: rgba(212,175,55,0.05); border-radius: 12px; border: 1px solid rgba(212,175,55,0.15); text-align: center;">
-                        <div style="font-size: 0.6875rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 8px;">📱 Shorts (≤60s)</div>
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--gold);">27</div>
-                        <div style="font-size: 0.75rem; color: var(--text-secondary);">videos</div>
-                        <div style="margin-top: 8px; font-size: 0.875rem; color: var(--success);">Avg 213 views</div>
+                    <div class="pie-chart">
+                        <div class="pie-center">
+                            <div class="pie-value">6,566</div>
+                            <div class="pie-label">views</div>
+                        </div>
                     </div>
-                    <div style="padding: 16px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--glass-border); text-align: center;">
-                        <div style="font-size: 0.6875rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 8px;">🎬 Long-Form (>60s)</div>
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--silver);">18</div>
-                        <div style="font-size: 0.75rem; color: var(--text-secondary);">videos</div>
-                        <div style="margin-top: 8px; font-size: 0.875rem; color: var(--text-tertiary);">Avg 44 views</div>
+                    <div class="legend">
+                        <div class="legend-item"><span class="legend-dot" style="background: var(--gold);"></span> DIY HOME (64%)</div>
+                        <div class="legend-item"><span class="legend-dot" style="background: #b8860b;"></span> History (26%)</div>
+                        <div class="legend-item"><span class="legend-dot" style="background: var(--silver);"></span> Food (5%)</div>
+                        <div class="legend-item"><span class="legend-dot" style="background: #666;"></span> TECH (3%)</div>
+                        <div class="legend-item"><span class="legend-dot" style="background: #444;"></span> Bio (1%)</div>
                     </div>
                 </div>
             </div>
-
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📈</span>
+                <span class="card-title">Channel Performance</span>
+            </div>
+            
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">🏠</div>
+                    <div class="channel-info">
+                        <h3>DIY HOME & GARDEN</h3>
+                        <p>Created Dec 28 • 15 videos</p>
+                    </div>
+                </div>
+                <div class="channel-stats">
+                    <div class="channel-stat"><div class="channel-stat-value">10</div><div class="channel-stat-label">Subs</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">4,196</div><div class="channel-stat-label">Views</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">280</div><div class="channel-stat-label">Per Video</div></div>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+            </div>
+            
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">📚</div>
+                    <div class="channel-info">
+                        <h3>History You Never Learned</h3>
+                        <p>Created Dec 29 • 14 videos</p>
+                    </div>
+                </div>
+                <div class="channel-stats">
+                    <div class="channel-stat"><div class="channel-stat-value">17</div><div class="channel-stat-label">Subs</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">1,739</div><div class="channel-stat-label">Views</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">124</div><div class="channel-stat-label">Per Video</div></div>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 41%;"></div></div>
+            </div>
+            
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">🍳</div>
+                    <div class="channel-info">
+                        <h3>Everyday Food and Living</h3>
+                        <p>Created Dec 28 • 9 videos</p>
+                    </div>
+                </div>
+                <div class="channel-stats">
+                    <div class="channel-stat"><div class="channel-stat-value">12</div><div class="channel-stat-label">Subs</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">356</div><div class="channel-stat-label">Views</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">40</div><div class="channel-stat-label">Per Video</div></div>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 8%;"></div></div>
+            </div>
+            
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">💻</div>
+                    <div class="channel-info">
+                        <h3>TECH EXPLAINED</h3>
+                        <p>Created Dec 29 • 4 videos</p>
+                    </div>
+                </div>
+                <div class="channel-stats">
+                    <div class="channel-stat"><div class="channel-stat-value">5</div><div class="channel-stat-label">Subs</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">200</div><div class="channel-stat-label">Views</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">50</div><div class="channel-stat-label">Per Video</div></div>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
+            </div>
+            
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">👤</div>
+                    <div class="channel-info">
+                        <h3>Biography Unlimited</h3>
+                        <p>Created Dec 29 • 4 videos</p>
+                    </div>
+                </div>
+                <div class="channel-stats">
+                    <div class="channel-stat"><div class="channel-stat-value">5</div><div class="channel-stat-label">Subs</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">75</div><div class="channel-stat-label">Views</div></div>
+                    <div class="channel-stat"><div class="channel-stat-value">19</div><div class="channel-stat-label">Per Video</div></div>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 2%;"></div></div>
+            </div>
+        </div>
+        
+        <div class="grid-2">
             <div class="card">
-                <div class="card-header"><span class="card-icon">📅</span><span class="card-title">Upload Freshness</span></div>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(52,199,89,0.05); border-radius: 8px; border-left: 3px solid var(--success);">
-        <span style="font-size: 0.8125rem;">🏠 DIY</span>
-        <span style="font-size: 0.8125rem; color: var(--success); font-weight: 600;">Apr 16 — Yesterday</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(52,199,89,0.05); border-radius: 8px; border-left: 3px solid var(--success);">
-        <span style="font-size: 0.8125rem;">📚 History</span>
-        <span style="font-size: 0.8125rem; color: var(--success); font-weight: 600;">Apr 09 — 8 days ago</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(255,59,48,0.05); border-radius: 8px; border-left: 3px solid var(--danger);">
-        <span style="font-size: 0.8125rem;">👤 Biography</span>
-        <span style="font-size: 0.8125rem; color: var(--danger); font-weight: 600;">Jan 29 — 11 weeks ago</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(255,59,48,0.05); border-radius: 8px; border-left: 3px solid var(--danger);">
-        <span style="font-size: 0.8125rem;">🍳 Everyday</span>
-        <span style="font-size: 0.8125rem; color: var(--danger); font-weight: 600;">Jan 22 — 12 weeks ago</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(255,59,48,0.05); border-radius: 8px; border-left: 3px solid var(--danger);">
-        <span style="font-size: 0.8125rem;">💻 TECH</span>
-        <span style="font-size: 0.8125rem; color: var(--danger); font-weight: 600;">Jan 12 — 13 weeks ago</span>
-    </div>
+                <div class="card-header">
+                    <span class="card-icon">🔥</span>
+                    <span class="card-title">Top Videos (All Time)</span>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb">🏠</div>
+                    <div class="video-info">
+                        <div class="video-title">Victorian Heated Walls</div>
+                        <div class="video-meta">DIY HOME & GARDEN • Jan 16</div>
+                        <div class="video-stats">
+                            <span class="video-stat views">👁 1,224</span>
+                            <span class="video-stat">👍 15</span>
+                            <span class="video-stat">💬 3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb">🏠</div>
+                    <div class="video-info">
+                        <div class="video-title">Survival vs Thriving</div>
+                        <div class="video-meta">DIY HOME & GARDEN • Jan 16</div>
+                        <div class="video-stats">
+                            <span class="video-stat views">👁 898</span>
+                            <span class="video-stat">👍 7</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb">📚</div>
+                    <div class="video-info">
+                        <div class="video-title">History Quiz: Who Organized the March...</div>
+                        <div class="video-meta">History You Never Learned • Jan 27</div>
+                        <div class="video-stats">
+                            <span class="video-stat views">👁 749</span>
+                            <span class="video-stat">👍 31</span>
+                            <span class="video-stat">💬 2</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb">🏠</div>
+                    <div class="video-info">
+                        <div class="video-title">Mathematics of Menus</div>
+                        <div class="video-meta">DIY HOME & GARDEN • Jan 20</div>
+                        <div class="video-stats">
+                            <span class="video-stat views">👁 635</span>
+                            <span class="video-stat">👍 3</span>
+                            <span class="video-stat">💬 1</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb">🏠</div>
+                    <div class="video-info">
+                        <div class="video-title">Time as an Ingredient</div>
+                        <div class="video-meta">DIY HOME & GARDEN • Jan 20</div>
+                        <div class="video-stats">
+                            <span class="video-stat views">👁 539</span>
+                            <span class="video-stat">👍 11</span>
+                            <span class="video-stat">💬 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">💡</span>
+                    <span class="card-title">Insights — Apr 18</span>
+                </div>
+                
+                <ul class="insight-list">
+                    <li class="insight-item">
+                        <span class="insight-icon">📈</span>
+                        <span class="insight-text"><strong>History</strong> grew fastest: +55% subs (11→17) and +18% views since Feb 5 — new "Foods That Changed History" series landed Apr 9</span>
+                    </li>
+                    <li class="insight-item">
+                        <span class="insight-icon">🏆</span>
+                        <span class="insight-text"><strong>DIY HOME</strong> still dominates at 64% of all views. "Victorian Heated Walls" crossed <strong>1,200 views</strong></span>
+                    </li>
+                    <li class="insight-item">
+                        <span class="insight-icon">🎯</span>
+                        <span class="insight-text"><strong>Quiz format</strong> remains king — History Quiz has 4.1% like rate vs 1.2% channel average</span>
+                    </li>
+                    <li class="insight-item">
+                        <span class="insight-icon">🍳</span>
+                        <span class="insight-text"><strong>Food</strong> quietly growing: +33% subs (9→12), "Before You Throw That Away" hit 278 views</span>
+                    </li>
+                    <li class="insight-item">
+                        <span class="insight-icon">⚡</span>
+                        <span class="insight-text"><strong>Action:</strong> More quiz content + push History's food-history series. Bio & Tech need fresh uploads</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Recent Uploads Section -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🆕</span>
+                <span class="card-title">Recent Uploads</span>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumb">🏠</div>
+                <div class="video-info">
+                    <div class="video-title">5 MOST: Weird Foods People Love "Subs"</div>
+                    <div class="video-meta">DIY HOME & GARDEN • Apr 16</div>
+                    <div class="video-stats">
+                        <span class="video-stat views">👁 1</span>
+                        <span class="video-stat" style="color: var(--success);">🟢 NEW</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumb">📚</div>
+                <div class="video-info">
+                    <div class="video-title">Five Most Foods That Changed History: Potato</div>
+                    <div class="video-meta">History You Never Learned • Apr 9</div>
+                    <div class="video-stats">
+                        <span class="video-stat views">👁 108</span>
+                        <span class="video-stat">👍 7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumb">📚</div>
+                <div class="video-info">
+                    <div class="video-title">Five Most Foods That Changed History: Wheat</div>
+                    <div class="video-meta">History You Never Learned • Apr 9</div>
+                    <div class="video-stats">
+                        <span class="video-stat views">👁 38</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumb">📚</div>
+                <div class="video-info">
+                    <div class="video-title">Five Most Foods That Changed History: Chili Peppers</div>
+                    <div class="video-meta">History You Never Learned • Apr 9</div>
+                    <div class="video-stats">
+                        <span class="video-stat views">👁 7</span>
+                        <span class="video-stat">👍 1</span>
+                    </div>
                 </div>
             </div>
         </div>
-
         
         <div class="card">
-            <div class="card-header"><span class="card-icon">🆕</span><span class="card-title">Recent Uploads (Last 30 Days)</span></div>
-            
-    <div class="video-card">
-        <div class="video-thumb">🏠</div>
-        <div class="video-info">
-            <div class="video-title">5 MOST: Weird Foods People Love "Subs"</div>
-            <div class="video-meta">DIY HOME & GARDEN • Apr 16 • 8m 28s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 0</span>
-                <span class="video-stat">👍 0</span>
-                <span class="video-stat" style="color: var(--text-tertiary);">Just uploaded</span>
+            <div class="card-header">
+                <span class="card-icon">🔗</span>
+                <span class="card-title">Channel Links</span>
             </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">📚</div>
-        <div class="video-info">
-            <div class="video-title">Five Most Foods That Changed History: Potato</div>
-            <div class="video-meta">History You Never Learned • Apr 09 • 1m</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 108</span>
-                <span class="video-stat">👍 7</span>
-                <span class="video-stat" style="color: var(--success);">6.5% like rate</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">📚</div>
-        <div class="video-info">
-            <div class="video-title">Five Most Foods That Changed History: ChiliPeppers</div>
-            <div class="video-meta">History You Never Learned • Apr 09 • 1m</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 6</span>
-                <span class="video-stat">👍 1</span>
-                
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">📚</div>
-        <div class="video-info">
-            <div class="video-title">Five Most Foods That Changed History: Wheat</div>
-            <div class="video-meta">History You Never Learned • Apr 09 • 58s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 38</span>
-                <span class="video-stat">👍 0</span>
-                
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">📚</div>
-        <div class="video-info">
-            <div class="video-title">Five Most Foods That Changed History: Sugar</div>
-            <div class="video-meta">History You Never Learned • Apr 09 • 54s</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 71</span>
-                <span class="video-stat">👍 0</span>
-                
-            </div>
-        </div>
-    </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Channel</th>
+                        <th>Link</th>
+                        <th>ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="channel-name"><span class="channel-icon-sm">🏠</span> DIY HOME & GARDEN</span></td>
+                        <td><a href="https://youtube.com/channel/UCcXcEDIls_yg_B48rtXGmDg" target="_blank">Open ↗</a></td>
+                        <td><code>UCcXcEDIls_yg_B48rtXGmDg</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="channel-name"><span class="channel-icon-sm">📚</span> History You Never Learned</span></td>
+                        <td><a href="https://youtube.com/channel/UC4whjCHC9UbSH5pAVpShL3w" target="_blank">Open ↗</a></td>
+                        <td><code>UC4whjCHC9UbSH5pAVpShL3w</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="channel-name"><span class="channel-icon-sm">🍳</span> Everyday Food and Living</span></td>
+                        <td><a href="https://youtube.com/channel/UCy11lIokKOGdWNuMP2XUacA" target="_blank">Open ↗</a></td>
+                        <td><code>UCy11lIokKOGdWNuMP2XUacA</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="channel-name"><span class="channel-icon-sm">💻</span> TECH EXPLAINED</span></td>
+                        <td><a href="https://youtube.com/channel/UCpeVZ34xMRpaAd1zpjGMh7Q" target="_blank">Open ↗</a></td>
+                        <td><code>UCpeVZ34xMRpaAd1zpjGMh7Q</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="channel-name"><span class="channel-icon-sm">👤</span> Biography Unlimited</span></td>
+                        <td><a href="https://youtube.com/channel/UCxShkKdP9HOVJc4fV5RZclA" target="_blank">Open ↗</a></td>
+                        <td><code>UCxShkKdP9HOVJc4fV5RZclA</code></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
-
-        <div class="card">
-            <div class="card-header"><span class="card-icon">🔗</span><span class="card-title">Channel Links</span></div>
-            <table><thead><tr><th>Channel</th><th>Link</th><th>ID</th></tr></thead><tbody>
-    <tr>
-        <td><span class="channel-name"><span class="channel-icon-sm">🏠</span> DIY HOME & GARDEN</span></td>
-        <td><a href="https://youtube.com/channel/UCcXcEDIls_yg_B48rtXGmDg" target="_blank">Open ↗</a></td>
-        <td><code>UCcXcEDIls_yg_B48rtXGmDg</code></td>
-    </tr>
-    <tr>
-        <td><span class="channel-name"><span class="channel-icon-sm">📚</span> History You Never Learned</span></td>
-        <td><a href="https://youtube.com/channel/UC4whjCHC9UbSH5pAVpShL3w" target="_blank">Open ↗</a></td>
-        <td><code>UC4whjCHC9UbSH5pAVpShL3w</code></td>
-    </tr>
-    <tr>
-        <td><span class="channel-name"><span class="channel-icon-sm">🍳</span> Everyday Food and Living</span></td>
-        <td><a href="https://youtube.com/channel/UCy11lIokKOGdWNuMP2XUacA" target="_blank">Open ↗</a></td>
-        <td><code>UCy11lIokKOGdWNuMP2XUacA</code></td>
-    </tr>
-    <tr>
-        <td><span class="channel-name"><span class="channel-icon-sm">💻</span> TECH EXPLAINED</span></td>
-        <td><a href="https://youtube.com/channel/UCpeVZ34xMRpaAd1zpjGMh7Q" target="_blank">Open ↗</a></td>
-        <td><code>UCpeVZ34xMRpaAd1zpjGMh7Q</code></td>
-    </tr>
-    <tr>
-        <td><span class="channel-name"><span class="channel-icon-sm">👤</span> Biography Unlimited</span></td>
-        <td><a href="https://youtube.com/channel/UCxShkKdP9HOVJc4fV5RZclA" target="_blank">Open ↗</a></td>
-        <td><code>UCxShkKdP9HOVJc4fV5RZclA</code></td>
-    </tr></tbody></table>
-        </div>
-
-        <footer>Inception Point AI • YouTube Analytics • Auto-updated every 6 hours</footer>
+        <footer>
+            <a href="index.html">Inception Point AI</a> • YouTube Analytics • Auto-refreshed daily at 7:30 AM PT
+        </footer>
     </div>
 </body>
 </html>
