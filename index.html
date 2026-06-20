@@ -98,15 +98,15 @@
         .channel-card:hover { border-color: rgba(212,175,55,0.2); background: rgba(255,255,255,0.04); }
         .channel-card:last-child { margin-bottom: 0; }
         .channel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-        .channel-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .channel-avatar { width: 40px; height: 40px; border-radius: 10px; background: var(--glass-bg); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; border: 1px solid var(--glass-border); }
         .channel-info h3 { font-size: 0.9375rem; font-weight: 600; }
         .channel-info p { font-size: 0.75rem; color: var(--text-tertiary); margin-top: 2px; }
         .channel-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
         .channel-stat { text-align: center; }
-        .channel-stat-value { font-size: 1.125rem; font-weight: 600; color: var(--text-primary); }
-        .channel-stat-label { font-size: 0.6875rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.03em; }
-        .progress-bar { height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-bright)); border-radius: 2px; }
+        .channel-stat-value { font-size: 1.125rem; font-weight: 700; color: var(--gold); }
+        .channel-stat-label { font-size: 0.625rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .progress-bar { height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%); border-radius: 2px; }
         .video-card { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--glass-border); }
         .video-card:last-child { border-bottom: none; }
         .video-thumb { width: 40px; height: 40px; border-radius: 8px; background: var(--glass-bg); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
@@ -116,11 +116,7 @@
         .video-stats { display: flex; gap: 12px; margin-top: 4px; }
         .video-stat { font-size: 0.75rem; color: var(--text-secondary); }
         .video-stat.views { font-weight: 600; }
-        .insights { list-style: none; }
-        .insight-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--glass-border); font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
-        .insight-item:last-child { border-bottom: none; }
-        .insight-icon { font-size: 1rem; flex-shrink: 0; }
-        footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--glass-border); font-size: 0.75rem; color: var(--text-tertiary); }
+        footer { text-align: center; padding: 32px 0; font-size: 0.75rem; color: var(--text-tertiary); }
     </style>
 </head>
 <body>
@@ -129,26 +125,26 @@
         <header>
             <h1>YouTube Analytics</h1>
             <p class="subtitle">Inception Point AI — Content Network</p>
-            <p class="updated">Updated June 19, 2026 at 07:32 AM PT<span class="auto-badge">Auto-Updated</span><span class="api-badge">YouTube Data API</span></p>
+            <p class="updated">Updated June 20, 2026 at 7:31 AM PT<span class="auto-badge">Auto-Updated</span><span class="api-badge">YouTube Data API</span></p>
         </header>
 
         <div class="stats-bar">
-            <div class="stat-box highlight"><div class="stat-value">349</div><div class="stat-label">Total Subscribers</div><div class="stat-delta">-1 since last</div></div>
-            <div class="stat-box"><div class="stat-value">59,407</div><div class="stat-label">Total Views</div><div class="stat-delta">+703 since last</div></div>
-            <div class="stat-box"><div class="stat-value">240</div><div class="stat-label">Total Videos</div></div>
+            <div class="stat-box highlight"><div class="stat-value">349</div><div class="stat-label">Total Subscribers</div><div class="stat-delta">+0 since last</div></div>
+            <div class="stat-box"><div class="stat-value">59,861</div><div class="stat-label">Total Views</div><div class="stat-delta">+454 since last</div></div>
+            <div class="stat-box"><div class="stat-value">239</div><div class="stat-label">Total Videos</div></div>
             <div class="stat-box"><div class="stat-value">5</div><div class="stat-label">Channels</div></div>
-            <div class="stat-box"><div class="stat-value">248</div><div class="stat-label">Avg Views/Video</div></div>
+            <div class="stat-box"><div class="stat-value">250</div><div class="stat-label">Avg Views/Video</div></div>
         </div>
 
         <div class="grid-2">
             <div class="card">
                 <div class="card-header"><span class="card-icon">📊</span><span class="card-title">Views by Channel</span></div>
-                <div class="bar-chart"><div class="bar-row"><span class="bar-label">DIY</span><div class="bar-wrapper"><div class="bar" style="width: 100%;">21,277</div></div></div><div class="bar-row"><span class="bar-label">Biography</span><div class="bar-wrapper"><div class="bar" style="width: 83%;">17,609</div></div></div><div class="bar-row"><span class="bar-label">History</span><div class="bar-wrapper"><div class="bar" style="width: 81%;">17,300</div></div></div><div class="bar-row"><span class="bar-label">Everyday</span><div class="bar-wrapper"><div class="bar" style="width: 10%;"></div><span class="bar-value">2,222</span></div></div><div class="bar-row"><span class="bar-label">TECH</span><div class="bar-wrapper"><div class="bar" style="width: 5%;"></div><span class="bar-value">999</span></div></div></div>
+                <div class="bar-chart"><div class="bar-row"><span class="bar-label">DIY</span><div class="bar-wrapper"><div class="bar" style="width: 100%;">21,441</div></div></div><div class="bar-row"><span class="bar-label">Biography</span><div class="bar-wrapper"><div class="bar" style="width: 83%;">17,703</div></div></div><div class="bar-row"><span class="bar-label">History</span><div class="bar-wrapper"><div class="bar" style="width: 82%;">17,487</div></div></div><div class="bar-row"><span class="bar-label">Everyday</span><div class="bar-wrapper"><div class="bar" style="width: 10%;"></div><span class="bar-value">2,230</span></div></div><div class="bar-row"><span class="bar-label">TECH</span><div class="bar-wrapper"><div class="bar" style="width: 5%;"></div><span class="bar-value">1,000</span></div></div></div>
             </div>
             <div class="card">
                 <div class="card-header"><span class="card-icon">🥧</span><span class="card-title">View Distribution</span></div>
                 <div class="pie-container">
-                    <div class="pie-chart" style="background: conic-gradient(var(--gold) 0deg 129deg, #b8860b 129deg 236deg, var(--silver) 236deg 341deg, #666 341deg 354deg, #444 354deg 360deg);"><div class="pie-center"><div class="pie-value">59,407</div><div class="pie-label">views</div></div></div>
+                    <div class="pie-chart" style="background: conic-gradient(var(--gold) 0deg 129deg, #b8860b 129deg 235deg, var(--silver) 235deg 340deg, #666 340deg 353deg, #444 353deg 359deg);"><div class="pie-center"><div class="pie-value">59,861</div><div class="pie-label">views</div></div></div>
                     <div class="legend"><div class="legend-item"><span class="legend-dot" style="background: var(--gold);"></span> DIY HOME & GARDEN (36%)</div><div class="legend-item"><span class="legend-dot" style="background: #b8860b;"></span> Biography Unlimited (30%)</div><div class="legend-item"><span class="legend-dot" style="background: var(--silver);"></span> History You Never Learned (29%)</div><div class="legend-item"><span class="legend-dot" style="background: #666;"></span> Everyday Food and Living (4%)</div><div class="legend-item"><span class="legend-dot" style="background: #444;"></span> TECH EXPLAINED (2%)</div></div>
                 </div>
             </div>
@@ -162,13 +158,13 @@
             <div class="channel-avatar">🏠</div>
             <div class="channel-info">
                 <h3>DIY HOME & GARDEN</h3>
-                <p>Created Dec 28 &bull; 71 videos</p>
+                <p>Created Dec 28 &bull; 70 videos</p>
             </div>
         </div>
         <div class="channel-stats">
             <div class="channel-stat"><div class="channel-stat-value">79</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">21,277</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">300</div><div class="channel-stat-label">Per Video</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">21,441</div><div class="channel-stat-label">Views</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">306</div><div class="channel-stat-label">Per Video</div></div>
         </div>
         <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
     </div>
@@ -182,8 +178,8 @@
         </div>
         <div class="channel-stats">
             <div class="channel-stat"><div class="channel-stat-value">57</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">17,609</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">489</div><div class="channel-stat-label">Per Video</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">17,703</div><div class="channel-stat-label">Views</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">491</div><div class="channel-stat-label">Per Video</div></div>
         </div>
         <div class="progress-bar"><div class="progress-fill" style="width: 83%;"></div></div>
     </div>
@@ -197,10 +193,10 @@
         </div>
         <div class="channel-stats">
             <div class="channel-stat"><div class="channel-stat-value">82</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">17,300</div><div class="channel-stat-label">Views</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">509</div><div class="channel-stat-label">Per Video</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">17,487</div><div class="channel-stat-label">Views</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">514</div><div class="channel-stat-label">Per Video</div></div>
         </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 81%;"></div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 82%;"></div></div>
     </div>
     <div class="channel-card">
         <div class="channel-header">
@@ -212,7 +208,7 @@
         </div>
         <div class="channel-stats">
             <div class="channel-stat"><div class="channel-stat-value">53</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">2,222</div><div class="channel-stat-label">Views</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">2,230</div><div class="channel-stat-label">Views</div></div>
             <div class="channel-stat"><div class="channel-stat-value">28</div><div class="channel-stat-label">Per Video</div></div>
         </div>
         <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
@@ -227,7 +223,7 @@
         </div>
         <div class="channel-stats">
             <div class="channel-stat"><div class="channel-stat-value">78</div><div class="channel-stat-label">Subs</div></div>
-            <div class="channel-stat"><div class="channel-stat-value">999</div><div class="channel-stat-label">Views</div></div>
+            <div class="channel-stat"><div class="channel-stat-value">1,000</div><div class="channel-stat-label">Views</div></div>
             <div class="channel-stat"><div class="channel-stat-value">50</div><div class="channel-stat-label">Per Video</div></div>
         </div>
         <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
@@ -244,7 +240,7 @@
             <div class="video-title">Biography Flash - Elon Musk - Personal Life & Relationships</div>
             <div class="video-meta">Biography Unlimited</div>
             <div class="video-stats">
-                <span class="video-stat views">👁 1,651</span>
+                <span class="video-stat views">👁 1,650</span>
                 <span class="video-stat" style="color: var(--success);">🔥</span>
             </div>
         </div>
@@ -255,7 +251,7 @@
             <div class="video-title">Biography Flash - Elon Musk - From PayPal to SpaceX</div>
             <div class="video-meta">Biography Unlimited</div>
             <div class="video-stats">
-                <span class="video-stat views">👁 1,459</span>
+                <span class="video-stat views">👁 1,547</span>
                 <span class="video-stat" style="color: var(--success);">🔥</span>
             </div>
         </div>
@@ -277,18 +273,7 @@
             <div class="video-title">Cottagecore Rainy Day Vibes</div>
             <div class="video-meta">DIY HOME & GARDEN</div>
             <div class="video-stats">
-                <span class="video-stat views">👁 1,395</span>
-                <span class="video-stat" style="color: var(--success);">🔥</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">📚</div>
-        <div class="video-info">
-            <div class="video-title">History Unsealed: Salem The Truth They Burned Away - Expendable Women</div>
-            <div class="video-meta">History You Never Learned</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 1,328</span>
+                <span class="video-stat views">👁 1,401</span>
                 <span class="video-stat" style="color: var(--success);">🔥</span>
             </div>
         </div>
@@ -296,11 +281,25 @@
     <div class="video-card">
         <div class="video-thumb">🏠</div>
         <div class="video-info">
-            <div class="video-title">feeling crafty</div>
+            <div class="video-title">Victorian Heated Walls</div>
             <div class="video-meta">DIY HOME & GARDEN</div>
             <div class="video-stats">
-                <span class="video-stat views">👁 1,326</span>
+                <span class="video-stat views">👁 1,383</span>
                 <span class="video-stat" style="color: var(--success);">🔥</span>
+            </div>
+        </div>
+    </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><span class="card-icon">📈</span><span class="card-title">Rising Content</span></div>
+                
+    <div class="video-card">
+        <div class="video-thumb">📚</div>
+        <div class="video-info">
+            <div class="video-title">History Unsealed: Salem The Truth They Burned Away</div>
+            <div class="video-meta">History You Never Learned</div>
+            <div class="video-stats">
+                <span class="video-stat views">👁 1,327</span>
             </div>
         </div>
     </div>
@@ -311,58 +310,24 @@
             <div class="video-meta">History You Never Learned</div>
             <div class="video-stats">
                 <span class="video-stat views">👁 1,318</span>
-                <span class="video-stat" style="color: var(--success);">🔥</span>
             </div>
         </div>
     </div>
     <div class="video-card">
-        <div class="video-thumb">📚</div>
+        <div class="video-thumb">🏠</div>
         <div class="video-info">
-            <div class="video-title">Howard Hughes: The Crash That Changed Everything</div>
-            <div class="video-meta">History You Never Learned</div>
+            <div class="video-title">Rosemary Pell 10 Ways to have a cottage core life</div>
+            <div class="video-meta">DIY HOME & GARDEN</div>
             <div class="video-stats">
-                <span class="video-stat views">👁 1,301</span>
-                <span class="video-stat" style="color: var(--success);">🔥</span>
+                <span class="video-stat views">👁 1,057</span>
             </div>
         </div>
     </div>
-    <div class="video-card">
-        <div class="video-thumb">👤</div>
-        <div class="video-info">
-            <div class="video-title">Biography Flash - Elon Musk - Did Elon Musk actually start Tesla</div>
-            <div class="video-meta">Biography Unlimited</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 1,291</span>
-                <span class="video-stat" style="color: var(--success);">🔥</span>
-            </div>
-        </div>
-    </div>
-    <div class="video-card">
-        <div class="video-thumb">👤</div>
-        <div class="video-info">
-            <div class="video-title">Biography Flash - Elon Musk - The Transition to X</div>
-            <div class="video-meta">Biography Unlimited</div>
-            <div class="video-stats">
-                <span class="video-stat views">👁 1,252</span>
-                <span class="video-stat" style="color: var(--success);">🔥</span>
-            </div>
-        </div>
-    </div>
-            </div>
-            <div class="card">
-                <div class="card-header"><span class="card-icon">💡</span><span class="card-title">Insights</span></div>
-                <ul class="insights">
-                    <li class="insight-item"><span class="insight-icon">📈</span><span class="insight-text"><strong>History You Never Learned +542 views</strong> since last update</span></li>
-                    <li class="insight-item"><span class="insight-icon">👥</span><span class="insight-text"><strong>Subscriber changes:</strong> TECH -1</span></li>
-                    <li class="insight-item"><span class="insight-icon">🎬</span><span class="insight-text"><strong>Everyday Food and Living</strong> added 1 new video</span></li>
-                    <li class="insight-item"><span class="insight-icon">🏆</span><span class="insight-text"><strong>History leads subs</strong> at 82 — highest across all channels. DIY leads views at 21,277</span></li>
-                </ul>
             </div>
         </div>
 
         <footer>
-            <p>IPAI YouTube Analytics Dashboard • Auto-refreshed daily at 7:30 AM PT via CB ⚡</p>
-            <p style="margin-top: 4px;">Live: <a href="https://inceptionpointai.github.io/youtube-dashboard/" style="color: var(--gold);">inceptionpointai.github.io/youtube-dashboard</a></p>
+            <p>IPAI YouTube Analytics &bull; Auto-refreshed daily via YouTube Data API</p>
         </footer>
     </div>
 </body>
